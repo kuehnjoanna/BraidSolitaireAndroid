@@ -1,5 +1,6 @@
 package com.example.braidsolitaireandroid
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -12,20 +13,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.braidsolitaireandroid.ui.theme.BraidSolitaireAndroidTheme
+import com.example.braidsolitaireandroid.views.MenuView
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
         //something
         setContent {
             BraidSolitaireAndroidTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                   MenuView()
+
             }
         }
     }
